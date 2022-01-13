@@ -17,63 +17,60 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Icon(
-            Icons.person_outline,
-            size: 120,
-            color: Colors.green,
-          ),
-          const TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              labelText: "Peso (kg)",
-              labelStyle: TextStyle(color: Colors.green),
-            ),
-            textAlign: TextAlign.center,
-            style: TextStyle(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Icon(
+              Icons.person_outline,
+              size: 120,
               color: Colors.green,
-              fontSize: 25,
             ),
-          ),
-          const TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              labelText: "Altura (cm)",
-              labelStyle: TextStyle(color: Colors.green),
-            ),
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 25,
-            ),
-          ),
-          SizedBox(
-            height: 50,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                'Calcular',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
+            customTextField("Peso (kg)"),
+            customTextField("Altura (cm)"),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  'Calcular',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green,
+            ),
+            const Text(
+              'INFO',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 25,
               ),
             ),
-          ),
-          const Text(
-            'INFO',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 25,
-            ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget customTextField(String text) {
+    return TextField(
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        labelText: text,
+        labelStyle: const TextStyle(color: Colors.green),
+      ),
+      textAlign: TextAlign.center,
+      style: const TextStyle(
+        color: Colors.green,
+        fontSize: 25,
       ),
     );
   }
